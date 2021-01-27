@@ -1,5 +1,5 @@
 package icia.test.sixgroup;
 
-public class sojeong {
+public class jeong {
 
 }
