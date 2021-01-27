@@ -34,6 +34,15 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@106.243.194.230:7001:xe","roodi","1234");
+			System.out.println("success");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return "home";
 	}
