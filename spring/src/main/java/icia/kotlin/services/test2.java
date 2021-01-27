@@ -5,6 +5,7 @@ public void MINA() {
 	System.out.println("yeoni");
 	System.out.println("dkdkdkdk");
 	System.out.println("hahahahah");
+
 	}
 	
 
