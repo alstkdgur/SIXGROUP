@@ -10,7 +10,7 @@
 <h1>
 	${welcome} 
 </h1>
-
 <P>  The time on the server is ${serverTime}. </P>
+ <a href="http://192.168.0.36/loginForm">로그인폼 이동</a> 
 </body>
 </html>
