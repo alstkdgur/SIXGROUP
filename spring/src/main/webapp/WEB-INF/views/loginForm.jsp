@@ -23,7 +23,7 @@
 	 var mPwd = document.getElementsByName("mPwd")[0];
 	 
 	 var form = document.createElement("form");
-	 form.action = "loginForm";
+	 form.action = "login";
 	 form.method = "POST";
 	 
 	 form.appendChild(mId);
