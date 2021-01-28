@@ -34,6 +34,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("welcome", "어서오세요~ 환영합니다");
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
