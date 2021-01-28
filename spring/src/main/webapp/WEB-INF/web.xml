@@ -16,8 +16,8 @@
 
 	<!-- Processes application requests -->
 	<servlet>
-		<servlet-name>appServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<servlet-name>appServlet</servlet-name> 
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> <!-- appservlet 들어오면 이 클래스 실행  -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
@@ -27,7 +27,8 @@
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/</url-pattern> <!-- /가 들어오면 appservlet실행  -->
 	</servlet-mapping>
+	
 
 </web-app>
