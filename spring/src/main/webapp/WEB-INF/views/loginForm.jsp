@@ -11,10 +11,11 @@
    <input type="password" name="mPwd" placeholder="패스워드를 입력해주세요"/>
    <input type="button" value="서버 요청" onClick="moveLoginForm()"/>
    
-   
-   ${mId }</br>
+   <br/>
+   ${mId }<br/>
    ${mPwd }
-   
+   ${memberId }<br/>
+	${memberPwd} <br/>
 </body>
 
 <script>
@@ -23,7 +24,7 @@
 	 var mPwd = document.getElementsByName("mPwd")[0];
 	 
 	 var form = document.createElement("form");
-	 form.action = "login";
+	 form.action = "login?memberInfo="+mId.value+"&memberInfo="+mPwd.value;
 	 form.method = "POST";
 	 
 	 form.appendChild(mId);
