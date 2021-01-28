@@ -7,20 +7,27 @@
 <title>LogInForm</title>
 </head>
 <body>
-   <input type="text" name="memberInfo" placeholder="아이디를 입력해주세요"/>
-   <input type="password" name="memberInfo" placeholder="패스워드를 입력해주세요"/>
+   <input type="text" name="mId" placeholder="아이디를 입력해주세요"/>
+   <input type="password" name="mPwd" placeholder="패스워드를 입력해주세요"/>
    <input type="button" value="서버 요청" onClick="moveLoginForm()"/>
+   
+   
+   ${mId }</br>
+   ${mPwd }
+   
 </body>
 
 <script>
   function moveLoginForm(){
-	 var memberInfo = document.getElementByName("memberInfo");
-      
+	 var mId = document.getElementsByName("mId")[0];
+	 var mPwd = document.getElementsByName("mPwd")[0];
+	 
 	 var form = document.createElement("form");
-	 form.action = "Login";
+	 form.action = "loginForm";
 	 form.method = "POST";
 	 
-	 form.appendChild(memberInfo);
+	 form.appendChild(mId);
+	 form.appendChild(mPwd);
 	 document.body.appendChild(form);
 	 
 	 form.submit();

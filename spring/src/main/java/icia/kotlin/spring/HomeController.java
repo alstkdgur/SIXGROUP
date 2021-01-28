@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -60,6 +61,17 @@ public class HomeController {
 		return mav;
 		
 	}
+
+	@RequestMapping(value = "/login", method = {RequestMethod.POST})
 	
+	public ModelAndView logIn(@RequestParam("mId") String id, @RequestParam("mPwd") String pwd) {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("mId",id);
+		mav.addObject("mPwd",pwd);
+		mav.setViewName("loginForm");
+		return mav;
+		
+	}
 	
 }
