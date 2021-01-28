@@ -13,7 +13,7 @@
    
    <br/>
    ${mId }<br/>
-   ${mPwd }
+   ${mPwd }<br/>
    ${memberId }<br/>
 	${memberPwd} <br/>
 </body>
