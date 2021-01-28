@@ -69,6 +69,8 @@ public class HomeController {
 	public ModelAndView logIn(@ModelAttribute member m,
 			@RequestParam("memberInfo")String[]member) {
 		
+		System.out.println("언니 나와요??");
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("mId",m.getMId());
 		mav.addObject("mPwd",m.getMPwd());
