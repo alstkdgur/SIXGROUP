@@ -47,14 +47,7 @@ public class HomeController {
 		
 		mv.setViewName("home");
 
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@106.243.194.230:7004:xe","tiger","1234");
-			System.out.println("success");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		
 		return mv;
 	}
@@ -71,9 +64,10 @@ public class HomeController {
 
 	@RequestMapping(value ="/login", method = {RequestMethod.POST})
 	public ModelAndView logIn(@ModelAttribute member m) {
+		System.out.println("읽어??? ");
 		
-		
-		ModelAndView mav = auth.entrance();
+		ModelAndView mav = null;
+		auth.entrance();
 		
 		return mav;
 		
