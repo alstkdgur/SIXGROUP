@@ -34,8 +34,7 @@ public class DBCPTest {
       Connection connect = data.getConnection();
       log.info(session);
       log.info(connect);
-      log.info(mapper.getDate());
-      log.info(mapper.getDate2());
+    
       }catch(Exception e) {
          e.printStackTrace();
       }

@@ -30,13 +30,14 @@ public class Authentication {
 			
 			mav.addObject("mId",m.getMId());
 			mav.addObject("mPwd",m.getMPwd());
-			mav.addObject("mDate",mapper.getDate2());
 
 			mav.setViewName("loginForm");
 
 			return mav;
 			
 		}
+
+	
 		
 		
 		

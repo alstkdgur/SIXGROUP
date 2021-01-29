@@ -4,8 +4,8 @@ import org.apache.ibatis.annotations.Select;
 
 public interface MapperInterface {
 
-	@Select("SELECT SYSDATE FROM DUAL")
-	public String getDate();
+	@Select("SELECT * FROM ST WHERE ST_ID")
+	public int isMember();
+	public int isAccess();
 
-	public String getDate2();
 }

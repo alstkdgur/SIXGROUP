@@ -3,9 +3,12 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="icia.kotlin.spring.MapperInterface"> <!-- 상속받기위해 -->
-    <select id="getDate2" resultType="String">
-      SELECT SYSDATE FROM DUAL
-    </select>
+    <select id="isMember" resultType="int">
+      SELECT count(*) FROM ST WHERE ST_ID = #{mId}
+     </select>
+     <select id="isAccess" resultType="int">
+      SELECT count(*) FROM ST WHERE ST_ID = #{mId} AND ST_PASSWORD = #{mPwd}
+     </select>
  
  </mapper>
 
