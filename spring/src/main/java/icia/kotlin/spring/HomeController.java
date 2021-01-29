@@ -72,8 +72,7 @@ public class HomeController {
 
 
 	@RequestMapping(value ="/login", method = {RequestMethod.POST})
-	public ModelAndView logIn(@ModelAttribute member m,
-			@RequestParam("memberInfo")String[]member) {
+	public ModelAndView logIn(@ModelAttribute member m) {
 		
 		ModelAndView mav = null;
 		auth.entrance();
