@@ -67,10 +67,7 @@ public class HomeController {
 
 
 	@RequestMapping(value ="/login", method = {RequestMethod.POST})
-	public ModelAndView logIn(@ModelAttribute member m,
-			@RequestParam("memberInfo")String[]member) {
-		
-		System.out.println("언니 나와요??");
+	public ModelAndView logIn(@ModelAttribute member m, @RequestParam("memberInfo")String[] member) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("mId",m.getMId());
