@@ -30,8 +30,6 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private Authentication auth;
-	
-	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -74,8 +72,8 @@ public class HomeController {
 	@RequestMapping(value ="/login", method = {RequestMethod.POST})
 	public ModelAndView logIn(@ModelAttribute member m) {
 		
-		ModelAndView mav = null;
-		auth.entrance();
+		
+		ModelAndView mav = auth.entrance();
 		
 		return mav;
 		

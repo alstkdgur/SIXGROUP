@@ -14,8 +14,7 @@
    <br/>
    ${mId }<br/>
    ${mPwd }<br/>
-   ${memberId }<br/>
-	${memberPwd} <br/>
+  
 </body>
 
 <script>
@@ -24,7 +23,7 @@
 	 var mPwd = document.getElementsByName("mPwd")[0];
 	 
 	 var form = document.createElement("form");
-	 form.action = "login?memberInfo="+mId.value+"&memberInfo="+mPwd.value;
+	 form.action = "login";
 	 form.method = "POST";
 	 
 	 form.appendChild(mId);
