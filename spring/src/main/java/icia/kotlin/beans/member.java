@@ -6,5 +6,6 @@ import lombok.Data;
 public class member {
 	private String mId ;
 	private String mPwd;
-	private String[] memberInfo;
+	private String code;
+	private String mDate;
 }

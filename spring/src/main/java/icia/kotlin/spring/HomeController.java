@@ -1,7 +1,6 @@
 package icia.kotlin.spring;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -20,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import icia.kotlin.beans.member;
 import icia.kotlin.services.Authentication;
+import lombok.Setter;
 
 /**
  * Handles requests for the application home page.
@@ -30,13 +30,16 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private Authentication auth;
+	@Autowired
+	private MapperInterface mapper;
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, ModelAndView mv) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
@@ -55,8 +58,10 @@ public class HomeController {
 	@RequestMapping(value = "/loginForm", method = {RequestMethod.GET, RequestMethod.POST})
 	
 	public ModelAndView logInForm() {
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("loginForm");
+
 		return mav;
 		
 	}
@@ -64,12 +69,9 @@ public class HomeController {
 
 	@RequestMapping(value ="/login", method = {RequestMethod.POST})
 	public ModelAndView logIn(@ModelAttribute member m) {
-		System.out.println("읽어??? ");
 		
-		ModelAndView mav = null;
-		auth.entrance();
-		
-		return mav;
+	
+		return  auth.entrance(m,mapper);
 		
 	}
 	

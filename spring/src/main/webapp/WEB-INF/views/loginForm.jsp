@@ -14,6 +14,7 @@
    <br/>
    ${mId }<br/>
    ${mPwd }<br/>
+   ${mDate }
   
 </body>
 
@@ -21,9 +22,9 @@
   function moveLoginForm(){
 	 var mId = document.getElementsByName("mId")[0];
 	 var mPwd = document.getElementsByName("mPwd")[0];
-	 
+
 	 var form = document.createElement("form");
-	 form.action = "login";
+	 form.action = "login?code=A";
 	 form.method = "POST";
 	 
 	 form.appendChild(mId);
