@@ -3,10 +3,18 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="icia.kotlin.spring.MapperInterface"> <!-- 상속받기위해 -->
-    <select id="getDate2" resultType="String">
-      SELECT SYSDATE FROM DUAL
+    <select id="idCheck" resultType="int">
+      SELECT COUNT(*) FROM ST WHERE ST_ID= #{mId}
     </select>
- 
+    
+    <select id="accessInfoCheck" resultType="int">
+     SELECT COUNT(*) FROM ST WHERE ST_ID= #{mId} AND ST_PASSWORD= #{mPwd}
+    </select>
+    
+        <select id="showMember" resultType="icia.kotlin.beans.member">
+     SELECT ST_ID AS mId ,ST_NAME AS mName ,ST_PHONE AS mPhone FROM ST WHERE ST_ID = #{mId}
+    </select>
+
  </mapper>
 
  <!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
