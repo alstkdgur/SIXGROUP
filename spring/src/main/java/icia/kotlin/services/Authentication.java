@@ -12,6 +12,8 @@ public class Authentication {
 	 
 
 	public Authentication() {}
+	@Autowired
+	private MapperInterface mapper;
 		
 		public ModelAndView entrance(member m,MapperInterface mapper) {
 			ModelAndView mav=null;
@@ -28,13 +30,25 @@ public class Authentication {
 			
 			ModelAndView mav = new ModelAndView();
 			
-			mav.addObject("mId",m.getMId());
-			mav.addObject("mPwd",m.getMPwd());
-
-			mav.setViewName("loginForm");
+			if(this.isMember(m)) {
+				if(this.isAccess(m)) {
+					System.out.println("성공 ");
+				}
+			}
 
 			return mav;
 			
+		}
+		private boolean converToBoolean(int count) {
+			return count==1?true:false;
+		}
+
+		private boolean isAccess(member member) {
+			return converToBoolean(mapper.isMember());
+		}
+
+		private boolean isMember(member member) {
+			return converToBoolean(mapper.isAccess());
 		}
 
 	

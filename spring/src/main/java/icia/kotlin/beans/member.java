@@ -8,5 +8,4 @@ public class member {
 	private String mPwd;
 	private String code;
 	private String mDate;
-	private int count;
 }
