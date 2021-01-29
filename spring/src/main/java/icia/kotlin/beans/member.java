@@ -8,5 +8,6 @@ public class member {
 	private String mPwd;
 
 	private String[] memberInfo;
+	//상혁이형
 
 }
