@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,18 +19,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import icia.kotlin.beans.member;
+import icia.kotlin.services.Authentication;
 
-/**
- * Handles requests for the application home page.
- */
+
 @Controller
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	@Autowired
+	private Authentication auth;
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, ModelAndView mv) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -69,15 +68,10 @@ public class HomeController {
 	@RequestMapping(value ="/login", method = {RequestMethod.POST})
 	public ModelAndView logIn(@ModelAttribute member m,
 			@RequestParam("memberInfo")String[]member) {
-		
-		System.out.println("언니 나와요??");
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("mId",m.getMId());
-		mav.addObject("mPwd",m.getMPwd());
-		mav.addObject("memberId",member[0]);
-		mav.addObject("memberPwd",member[1]);
-		mav.setViewName("loginForm");
+			
+		ModelAndView mav= null;
+		auth.entrance();
+
 		return mav;
 		
 	}
