@@ -11,7 +11,7 @@ public class Authentication {
 		public ModelAndView entrance() {
 			ModelAndView mav = null;
 			
-			System.out.println("진입성");
+			System.out.println("진입성공 ");
 			return mav;
 		
 	}
