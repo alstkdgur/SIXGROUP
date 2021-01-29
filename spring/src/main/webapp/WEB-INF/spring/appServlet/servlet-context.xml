@@ -22,7 +22,8 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="icia.kotlin.spring" />
-	
+	<context:component-scan base-package="icia.kotlin.services.*" />
+
 	
 	
 </beans:beans>

@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import icia.kotlin.beans.member;
+import icia.kotlin.services.Authentication;
 
 /**
  * Handles requests for the application home page.
@@ -26,6 +28,9 @@ import icia.kotlin.beans.member;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Autowired
+	private Authentication auth;
+	
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -70,16 +75,16 @@ public class HomeController {
 	public ModelAndView logIn(@ModelAttribute member m,
 			@RequestParam("memberInfo")String[]member) {
 		
+		ModelAndView mav = null;
+		auth.entrance();
 		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("mId",m.getMId());
-		mav.addObject("mPwd",m.getMPwd());
-		mav.addObject("memberId",member[0]);
-		mav.addObject("memberPwd",member[1]);
-		mav.setViewName("loginForm");
 		return mav;
 		
 	}
+	
+
+	
+
 
 	
 }
