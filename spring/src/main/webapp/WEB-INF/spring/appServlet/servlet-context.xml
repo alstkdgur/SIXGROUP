@@ -23,10 +23,7 @@
 	
 	<context:component-scan base-package="icia.kotlin.spring" />
 	<context:component-scan base-package="icia.kotlin.services" />
-<<<<<<< HEAD
-	
-=======
->>>>>>> refs/remotes/origin/master
+
 	
 	
 </beans:beans>
