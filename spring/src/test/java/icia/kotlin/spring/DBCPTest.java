@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -30,12 +31,11 @@ public class DBCPTest {
    @Test
    public void connectTest() {
       try {
-      SqlSession session = sqlSession.openSession();	  
+      SqlSession session = sqlSession.openSession();	
       Connection connect = data.getConnection();
       log.info(session);
       log.info(connect);
-      log.info(mapper.getDate());
-      log.info(mapper.getDate2());
+ 
       }catch(Exception e) {
          e.printStackTrace();
       }

@@ -28,7 +28,8 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private Authentication auth;
-
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, ModelAndView mv) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -66,13 +67,10 @@ public class HomeController {
 
 
 	@RequestMapping(value ="/login", method = {RequestMethod.POST})
-	public ModelAndView logIn(@ModelAttribute member m,
-			@RequestParam("memberInfo")String[]member) {
-			
-		ModelAndView mav= null;
-		auth.entrance();
+	public ModelAndView login(@ModelAttribute member m) {
+	
 
-		return mav;
+		return auth.entrance(m);
 		
 	}
 

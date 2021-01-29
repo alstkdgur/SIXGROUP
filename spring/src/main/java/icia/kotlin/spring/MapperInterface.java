@@ -2,10 +2,11 @@ package icia.kotlin.spring;
 
 import org.apache.ibatis.annotations.Select;
 
+import icia.kotlin.beans.member;
+
 public interface MapperInterface {
-
-	@Select("SELECT SYSDATE FROM DUAL")
-	public String getDate();
-
-	public String getDate2();
+	
+	public int isMember(member m);
+	public int isAccess(member m);
+	public member memberInfo(member m);
 }

@@ -14,8 +14,10 @@
    <br/>
    ${mId }<br/>
    ${mPwd }<br/>
-   ${memberId }<br/>
-	${memberPwd} <br/>
+ 	${mName}<br/>
+ 	${mPhone }<br/> 
+ 	${memberInfo}<br/>
+
 </body>
 
 <script>
@@ -23,14 +25,16 @@
 	 var mId = document.getElementsByName("mId")[0];
 	 var mPwd = document.getElementsByName("mPwd")[0];
 	 
+	 
 	 var form = document.createElement("form");
-	 form.action = "login?memberInfo="+mId.value+"&memberInfo="+mPwd.value;
+	 form.action = "login?servicecode=A";
 	 form.method = "POST";
 	 
 	 form.appendChild(mId);
 	 form.appendChild(mPwd);
 	 document.body.appendChild(form);
-	 
+	
+
 	 form.submit();
   }
 </script>
