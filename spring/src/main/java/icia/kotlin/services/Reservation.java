@@ -28,6 +28,7 @@ public class Reservation {
 		
 		if(movie.getMvCode() == null) {
 			mav = this.movieCtl();
+			System.out.println("이거지워죠 ");
 		}else {
 			
 		}
