@@ -74,7 +74,7 @@ public class Authentication {
 		/* 회원정보 가져오기  */
 		private member info(member member) {
 			
-			return mapper.isInfo(member);
+			return mapper.memberInfo(member);
 		}
 		/*insert customer */
 		private int insCustomer(member member) {
