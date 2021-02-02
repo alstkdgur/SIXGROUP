@@ -6,8 +6,9 @@ import lombok.Data;
 public class member {
 	private String mId ;
 	private String mPwd;
+	private String code;
+	private String mPhone;
+	private String mName;
 
-	private String[] memberInfo;
-	//상혁이형
-
+	
 }

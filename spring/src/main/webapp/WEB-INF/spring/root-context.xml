@@ -16,7 +16,7 @@
 	<bean id="sikzzang" class="com.zaxxer.hikari.HikariConfig">
 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 	<property name="jdbcUrl" value="jdbc:oracle:thin:@106.243.194.230:7004:xe"></property>
-	<property name="username" value="tiger"></property>
+	<property name="username" value="ROODI"></property>
 	<property name="password" value="1234"></property>
 	
 	</bean>	
@@ -29,14 +29,13 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 	   <property name="dataSource" ref="data"></property>
 	</bean>
-	
-	<!-- Transaction 정보 -->
+		<!-- Transaction 정보 -->
 	<bean id="tran" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	   <property name="dataSource" ref="data"></property>
-	</bean>
+
+   </bean>
 	
 	<mybatis-spring:scan base-package="icia.kotlin.spring"/>
-	
 	
 	
 </beans>

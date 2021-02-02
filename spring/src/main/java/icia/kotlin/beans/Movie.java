@@ -12,3 +12,5 @@ public class Movie {
    private String mvImage;
    private String mvComments;
 }
+
+
