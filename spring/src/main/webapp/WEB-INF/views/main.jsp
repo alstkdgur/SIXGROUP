@@ -4,6 +4,24 @@
 <!DOCTYPE html>
 <html>
 <style>
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+.line {
+  width: 1260px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+#section{
+	width:480px
+}
 .item_top{
 	width:100px;
 	hight:200px;

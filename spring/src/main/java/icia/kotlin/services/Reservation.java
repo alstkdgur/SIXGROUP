@@ -28,7 +28,6 @@ public class Reservation {
 		
 		if(movie.getMvCode() == null) {
 			mav = this.movieCtl();
-			System.out.println("이거지워죠 ");
 		}else {
 			
 		}
@@ -67,7 +66,7 @@ public class Reservation {
 
 				sb.append("<div class=\"item\" onClick=\"goDetail(\'" +  movie.getMvImage() + "\')\"><input type=\"hidden\" name=\"pk\" value=\"" + movie.getMvCode() + "\"/>");
 				sb.append("<div class=\"item__top\"><img src=\"image/" + movie.getMvImage() + "\" /></div>");
-				sb.append("<div class=\"item__bottom\"><div class=\"item-name\">" + movie.getMvName()
+				sb.append("<div class=\"item__bottom\">"+ movie.getMvName()
 						+ "</div>");
 				sb.append("</div>");
 

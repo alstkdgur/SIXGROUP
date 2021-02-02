@@ -42,7 +42,25 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(@ModelAttribute Movie movie) {
+	public ModelAndView main(@ModelAttribute Movie movie) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav = res.entrance(movie);
+
+		return mav;
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView date(@ModelAttribute Movie movie) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav = res.entrance(movie);
+
+		return mav;
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView screen(@ModelAttribute Movie movie) {
 		ModelAndView mav = new ModelAndView();
 		
 		mav = res.entrance(movie);
@@ -66,7 +84,6 @@ public class HomeController {
 	@RequestMapping(value ="/login", method = {RequestMethod.POST})
 	public ModelAndView logIn(@ModelAttribute member m) {
 		
-	
 		return  auth.entrance(m);
 		
 	}
