@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import icia.kotlin.beans.Movie;
 import icia.kotlin.beans.member;
 import icia.kotlin.services.Authentication;
+import icia.kotlin.services.Reservation;
 
 
 @Controller
@@ -28,32 +30,16 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private Authentication auth;
+	@Autowired
+	private Reservation res;
 	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(Locale locale, ModelAndView mv) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		mv.addObject("serverTime", formattedDate );
-		mv.addObject("welcome", "어서오세요~ 환영합니다");
-		
-		mv.setViewName("home");
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@106.243.194.230:7004:xe","tiger","1234");
-			System.out.println("success");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return mv;
+	public ModelAndView home(@ModelAttribute Movie movie ) {
+	 ModelAndView mav= new ModelAndView();
+	 mav = res.entrance(movie);
+	 mav.setViewName("home");
+		return mav;
 	}
 	
 	@RequestMapping(value = "/loginForm", method = {RequestMethod.GET, RequestMethod.POST})
