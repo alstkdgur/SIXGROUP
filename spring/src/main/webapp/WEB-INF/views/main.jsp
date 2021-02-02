@@ -1,36 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
+<link rel="stylesheet" type="text/css" href="/resources/css/movie.css"/>
+
 <!DOCTYPE html>
 <html>
-<style>
-* {
-  box-sizing: border-box;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-}
-.line {
-  width: 1260px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-#section{
-	width:480px
-}
-.item_top{
-	width:100px;
-	hight:200px;
-}
-.item_bottom{
-	width:100px;
-	hight:20px;
-}
-</style>
+
 <head>
 	<title>main</title>
 </head>
@@ -39,7 +14,28 @@ body {
 	MOVIE SELECTION
 </h1>
 
-	<section id="section">${gList }</section>
+	<section id="section">${mvList }</section>
 
 </body>
+<script>
+function goDate(mvCode){
+	   var mvCode = mvCode;         
+	   
+	   var form = document.createElement("form");
+	   form.action = "date";
+	   form.method = "GET";
+
+	   
+	   //서버전송 데이터 : mvCode
+	      var input = document.createElement("input");
+	      input.type = "hidden";
+	      input.name = "mvCode";
+	      input.value = mvCode;
+	      form.appendChild(input);
+	   
+	   
+	   document.body.appendChild(form);
+	   form.submit();
+	}
+</script>
 </html>

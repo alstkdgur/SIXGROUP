@@ -50,16 +50,16 @@ public class HomeController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/date", method = RequestMethod.GET)
 	public ModelAndView date(@ModelAttribute Movie movie) {
 		ModelAndView mav = new ModelAndView();
-		
 		mav = res.entrance(movie);
+		System.out.println("이거지워죠 ");
 
 		return mav;
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/screen", method = RequestMethod.GET)
 	public ModelAndView screen(@ModelAttribute Movie movie) {
 		ModelAndView mav = new ModelAndView();
 		

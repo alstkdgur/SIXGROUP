@@ -11,7 +11,7 @@
 <h1>
 	DATE SELECTION
 </h1>
-
+<p>${selmovie }</p>
 
 </body>
 </html>
