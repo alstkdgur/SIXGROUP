@@ -9,8 +9,6 @@ public interface MapperInterface {
 	@Select("SELECT SYSDATE FROM DUAL")
 	public String getDate();
 
-
-
 	
 	
 	public int isMember(member m);
