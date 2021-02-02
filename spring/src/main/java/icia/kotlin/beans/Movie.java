@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class Movie {
+
 	private String sCode;
 	private String MvCode ;
 	private String MvName;
@@ -11,4 +12,6 @@ public class Movie {
 	private String MvStatus;
 	private String MvImage;
 	private String MvComments;
+
+
 }

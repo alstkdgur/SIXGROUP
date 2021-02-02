@@ -29,9 +29,14 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 	   <property name="dataSource" ref="data"></property>
 	</bean>
+
+
+
+	<!-- Transaction 정보 -->
 	<bean id="tran" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="data"></property>
+	   <property name="dataSource" ref="data"></property>
 	</bean>
+
 	<mybatis-spring:scan base-package="icia.kotlin.spring"/>
 	
 	

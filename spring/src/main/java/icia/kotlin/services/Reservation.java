@@ -1,5 +1,6 @@
 package icia.kotlin.services;
 
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,14 +46,8 @@ public class Reservation {
 		return mapper.getMovieList();
 	}
 	
-	
-	private ArrayList<Movie> htmlMovie(){
-		
-		ModelAndView mav= new ModelAndView();
-		
-		return null;
+
 		
 		
-	}
-	
 }
+
