@@ -3,16 +3,25 @@
 <%@ page session="false" %>
 <!DOCTYPE html>
 <html>
+<style>
+.item_top{
+	width:100px;
+	hight:200px;
+}
+.item_bottom{
+	width:100px;
+	hight:20px;
+}
+</style>
 <head>
-	<title>Home</title>
+	<title>main</title>
 </head>
 <body>
 <h1>
-	${welcome} 
+	MOVIE SELECTION
 </h1>
-<P>  The time on the server is ${serverTime}. </P>
 
- <a href="http://192.168.1.137/loginForm">로그인폼 이동</a> 
-<p> NOW TIME : ${Access }</p>
+	<section id="section">${gList }</section>
+
 </body>
 </html>

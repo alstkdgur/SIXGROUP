@@ -4,12 +4,20 @@
  
  <mapper namespace="icia.kotlin.spring.MapperInterface"> <!-- 상속받기위해 -->
     <select id="isMember" resultType="int">
-      SELECT count(*) FROM ST WHERE ST_ID = #{mId}
+     	 SELECT count(*) FROM ST WHERE ST_ID = #{mId}
      </select>
-     <select id="isAccess" resultType="int">
-      SELECT count(*) FROM ST WHERE ST_ID = #{mId} AND ST_PASSWORD = #{mPwd}
+     <select id="isAccess" resultType="int">	
+    	  SELECT count(*) FROM ST WHERE ST_ID = #{mId} AND ST_PASSWORD = #{mPwd}
      </select>
- 
+      <select id="isInfo" resultType="icia.kotlin.beans.member">
+     	 SELECT ST_ID AS mId ,ST_NAME AS mName ,ST_PHONE AS mPhone FROM ST WHERE ST_ID = #{mId} 
+     </select>
+ 	<insert id="insCustomer">
+ 		INSERT INTO ST(ST_ID,ST_NAME,ST_PASSWORD,ST_PHONE) VALUES (#{mId},#{mName},#{mPwd},#{mPhone})
+ 	</insert>
+ 	<insert id="insMovie">
+ 		INSERT INTO MV(MV_CODE,MV_NAME,MV_GRADE,MV_STATUS,MV_IMAGE,MV_COMMENTS) VALUES (#{mvCode},#{mvName},#{mvGrade},#{mvStatus},#{mvImage},#{mvComments})
+ 	</insert>
  </mapper>
 
  <!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->

@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import icia.kotlin.beans.Movie;
 import icia.kotlin.beans.member;
 import icia.kotlin.services.Authentication;
+import icia.kotlin.services.Reservation;
 import lombok.Setter;
 
 /**
@@ -31,28 +34,20 @@ public class HomeController {
 	@Autowired
 	private Authentication auth;
 	@Autowired
-	private MapperInterface mapper;
+	private Reservation res;
+
+	
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(Locale locale, ModelAndView mv) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	public ModelAndView home(@ModelAttribute Movie movie) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav = res.entrance(movie);
 
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		mv.addObject("serverTime", formattedDate );
-		mv.addObject("welcome", "어서오세요~ 환영합니다");
-		
-		mv.setViewName("home");
-
-	
-		
-		return mv;
+		return mav;
 	}
 	
 	@RequestMapping(value = "/loginForm", method = {RequestMethod.GET, RequestMethod.POST})
@@ -60,6 +55,7 @@ public class HomeController {
 	public ModelAndView logInForm() {
 
 		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("loginForm");
 
 		return mav;
@@ -71,7 +67,7 @@ public class HomeController {
 	public ModelAndView logIn(@ModelAttribute member m) {
 		
 	
-		return  auth.entrance(m,mapper);
+		return  auth.entrance(m);
 		
 	}
 	

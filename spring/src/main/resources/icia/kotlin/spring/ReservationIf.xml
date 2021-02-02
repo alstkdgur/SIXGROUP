@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper	namespace="icia.kotlin.spring.ReservationIf">
+<!-- QUERY에 포함된 문자중 < > & || 등이 있다면 xml 파싱을 하지 않도록  -->
+	<select	id="getMovieList" resultType="icia.kotlin.beans.Movie">
+		<![CDATA[
+			SELECT MV_CODE AS MVCODE , MV_NAME AS MVNAME, MV_GRADE AS MVGRADE, MV_STATUS AS MVSTATUS ,MV_IMAGE AS MVIMAGE , MV_COMMENTS AS MVCOMMENTS FROM MV WHERE MV_STATUS != 'C'
+		]]>
+	</select>
+</mapper>
+ <!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
